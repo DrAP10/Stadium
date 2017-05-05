@@ -214,7 +214,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 162702, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_Name
-      value: Player 3
+      value: P3
       objectReference: {fileID: 0}
     - target: {fileID: 481030, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_LocalScale.x
@@ -361,7 +361,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125514, guid: a6a360654bf766742bf9219976884824, type: 2}
       propertyPath: m_Name
-      value: Player 1
+      value: P1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6a360654bf766742bf9219976884824, type: 2}
@@ -407,7 +407,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 154840, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Name
-      value: Player 1
+      value: P1
       objectReference: {fileID: 0}
     - target: {fileID: 2373700, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -747,9 +747,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 213693382}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: be797c5e896d4964b983e46d83016355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: 1
+  speed: 0
+  goingUp: 0
 --- !u!23 &213693386
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1017,7 +1020,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 271919636}
   m_Layer: 0
-  m_Name: Player 3
+  m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1121,7 +1124,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 288472939}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,7 +1216,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1250127808}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1234,7 +1237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &345384075
 Light:
   m_ObjectHideFlags: 0
@@ -1484,7 +1487,7 @@ GameObject:
   - 23: {fileID: 434881796}
   - 114: {fileID: 434881795}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: P1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1795,8 +1798,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: P1 Horizontal
+  m_VerticalAxis: P1 Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -2037,7 +2040,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 154840, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Name
-      value: Player 3
+      value: P3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
@@ -2127,7 +2130,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 420962500}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2145,7 +2148,7 @@ GameObject:
   - 64: {fileID: 628882218}
   - 23: {fileID: 628882217}
   m_Layer: 0
-  m_Name: Player 3 Plane
+  m_Name: P3 Plane
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2318,7 +2321,7 @@ GameObject:
   - 64: {fileID: 731129536}
   - 23: {fileID: 731129535}
   m_Layer: 0
-  m_Name: Player 2 Plane
+  m_Name: P2 Plane
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2753,7 +2756,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 837279759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 104be042748ef0a468598ef008f4adbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &837279764
@@ -2865,9 +2868,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 863904798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: be797c5e896d4964b983e46d83016355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: 1
+  speed: 0
+  goingUp: 0
 --- !u!23 &863904802
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2970,7 +2976,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 874383620}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3306,7 +3312,7 @@ GameObject:
   - 64: {fileID: 1031523432}
   - 23: {fileID: 1031523431}
   m_Layer: 0
-  m_Name: Player 1 Plane
+  m_Name: P1 Plane
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3480,7 +3486,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 154840, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Name
-      value: Player 4
+      value: P4
       objectReference: {fileID: 0}
     - target: {fileID: 2373700, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -3530,7 +3536,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125514, guid: a6a360654bf766742bf9219976884824, type: 2}
       propertyPath: m_Name
-      value: Player 4
+      value: P4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6a360654bf766742bf9219976884824, type: 2}
@@ -3655,7 +3661,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1187619803}
   m_Layer: 0
-  m_Name: Player 4
+  m_Name: P4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4368,7 +4374,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1269952199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 104be042748ef0a468598ef008f4adbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1269952204
@@ -4590,7 +4596,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125514, guid: a6a360654bf766742bf9219976884824, type: 2}
       propertyPath: m_Name
-      value: Player 2
+      value: P2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6a360654bf766742bf9219976884824, type: 2}
@@ -4608,7 +4614,7 @@ GameObject:
   - 23: {fileID: 1340527834}
   - 114: {fileID: 1340527833}
   m_Layer: 0
-  m_Name: Player 4
+  m_Name: P4
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4763,7 +4769,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1349584533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 104be042748ef0a468598ef008f4adbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1349584538
@@ -4905,7 +4911,7 @@ GameObject:
   - 23: {fileID: 1368358892}
   - 114: {fileID: 1368358891}
   m_Layer: 0
-  m_Name: Player 2
+  m_Name: P2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5338,7 +5344,7 @@ GameObject:
   - 23: {fileID: 1423500829}
   - 114: {fileID: 1423500828}
   m_Layer: 0
-  m_Name: Player 3
+  m_Name: P3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5704,9 +5710,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1485215772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: be797c5e896d4964b983e46d83016355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: 1
+  speed: 0
+  goingUp: 0
 --- !u!23 &1485215776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5779,7 +5788,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1498278477}
   m_Layer: 0
-  m_Name: Player 4
+  m_Name: P4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5856,7 +5865,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1577098759}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5894,7 +5903,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1619294345}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5958,7 +5967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 154840, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Name
-      value: Player 2
+      value: P2
       objectReference: {fileID: 0}
     - target: {fileID: 2373700, guid: 3dafc65c8e187aa44905491ced9b804b, type: 2}
       propertyPath: m_Materials.Array.data[0]
@@ -5976,7 +5985,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1629604803}
   m_Layer: 0
-  m_Name: Player 3
+  m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6055,9 +6064,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1633580504}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: be797c5e896d4964b983e46d83016355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floor: 1
+  speed: 0
+  goingUp: 0
 --- !u!23 &1633580508
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6290,8 +6302,8 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
+  m_HorizontalAxis: P1 Horizontal
+  m_VerticalAxis: P1 Vertical
   m_SubmitButton: Submit
   m_CancelButton: Cancel
   m_InputActionsPerSecond: 10
@@ -6385,7 +6397,7 @@ GameObject:
   - 64: {fileID: 1703174746}
   - 23: {fileID: 1703174745}
   m_Layer: 0
-  m_Name: Player 4 Plane
+  m_Name: P4 Plane
   m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6688,7 +6700,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1797549212}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 104be042748ef0a468598ef008f4adbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!54 &1797549217
@@ -7120,7 +7132,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125514, guid: a6a360654bf766742bf9219976884824, type: 2}
       propertyPath: m_Name
-      value: Player 3
+      value: P3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a6a360654bf766742bf9219976884824, type: 2}
@@ -7357,7 +7369,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 162702, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_Name
-      value: Player 4
+      value: P4
       objectReference: {fileID: 0}
     - target: {fileID: 481030, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -7577,7 +7589,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1708059732}
   m_Layer: 0
-  m_Name: Player 3
+  m_Name: P3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7793,7 +7805,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 162702, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_Name
-      value: Player 2
+      value: P2
       objectReference: {fileID: 0}
     - target: {fileID: 481030, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8176,7 +8188,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 162702, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_Name
-      value: Player 1
+      value: P1
       objectReference: {fileID: 0}
     - target: {fileID: 481030, guid: a571b0f94be591547a91087ebe473438, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8218,7 +8230,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2133164527}
   m_Layer: 0
-  m_Name: Player 4
+  m_Name: P4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

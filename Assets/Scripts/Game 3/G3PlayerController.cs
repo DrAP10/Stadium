@@ -36,14 +36,14 @@ public class G3PlayerController : MonoBehaviour {
             speed -= 5;
         if (speed < 0)
             speed = 0;
-        if (Input.GetButtonDown(transform.parent.name+" Run") && !hit)
+        if (Input.GetButtonDown(transform.parent.name+" Main") && !hit)
         {
             speed += 5;
             if (speed > 10)
                 speed = 10;
             time = 0f;
         }
-        if (Input.GetButtonDown(transform.parent.name + " Jump") && !hit)
+        if (Input.GetButtonDown(transform.parent.name + " Secondary") && !hit)
         {
             gameObject.GetComponent<Animation>().Play("Jump",PlayMode.StopAll);
         }

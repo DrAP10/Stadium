@@ -17,7 +17,7 @@ public class G4PlayerController : MonoBehaviour {
 	void Update () {
         if (dead)
             return;
-        if (Input.GetButtonDown(transform.parent.name+" Hypno"))
+        if (Input.GetButtonDown(transform.parent.name+" Main"))
         {
             if (onSide)
             {

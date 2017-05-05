@@ -13,12 +13,12 @@ public class G5PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetButtonDown(transform.name+" Blue")&&currentBlue)
+        if (Input.GetButtonDown(transform.name+" Main")&&currentBlue)
         {
             TakeDamage(2);
             time = 0;
         }
-        if (Input.GetButtonDown(transform.name + " Green") && !currentBlue)
+        if (Input.GetButtonDown(transform.name + " Secondary") && !currentBlue)
         {
             TakeDamage(2);
             time = 0;

@@ -22,8 +22,8 @@ public class G9PlayerController : MonoBehaviour {
         }
         if (gameOver)
             return;
-        if ((Input.GetButtonDown(transform.parent.name+" left") && right)
-            ||(Input.GetButtonDown(transform.parent.name + " right") && !right))
+        if ((Input.GetButtonDown(transform.parent.name+" Main") && right)
+            ||(Input.GetButtonDown(transform.parent.name + " Secondary") && !right))
         {
             right = !right;
             transform.Translate(transform.up * (-0.04f));

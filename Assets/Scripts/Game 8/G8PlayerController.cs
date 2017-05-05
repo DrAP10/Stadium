@@ -45,7 +45,7 @@ public class G8PlayerController : MonoBehaviour {
         }*/
         if (dead)
             return;
-        if (Input.GetButton(transform.parent.name+" harden"))
+        if (Input.GetButton(transform.parent.name+" Main"))
         {
             if(!harden && !gameObject.GetComponent<Animation>().IsPlaying("Impact"))
             {
@@ -54,7 +54,7 @@ public class G8PlayerController : MonoBehaviour {
             }
             TakeDamage(Time.deltaTime * 10);
         }
-        if (Input.GetButtonUp(transform.parent.name + " harden") &&harden)
+        if (Input.GetButtonUp(transform.parent.name + " Main") &&harden)
         {
             gameObject.GetComponent<Renderer>().material = color;
             harden = false;

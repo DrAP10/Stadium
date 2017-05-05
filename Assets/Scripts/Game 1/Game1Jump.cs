@@ -17,7 +17,7 @@ public class Game1Jump : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonDown(transform.parent.name+" jump")&&floor)
+        if (Input.GetButtonDown(transform.parent.name+" Main")&&floor)
         {
             position = 0.15f;
             time = 0f;
@@ -29,7 +29,7 @@ public class Game1Jump : MonoBehaviour {
         if(!floor)
         {
             time += Time.deltaTime;
-            if (Input.GetButton(transform.parent.name + " jump") &&goingUp)
+            if (Input.GetButton(transform.parent.name + " Main") &&goingUp)
             {
                 position = position + speed * time;
             }
