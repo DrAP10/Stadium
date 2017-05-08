@@ -1,25 +1,15 @@
 fileFormatVersion: 2
-guid: 1d87848c9ef73004f89951c7cb7df9ba
-timeCreated: 1468798605
+guid: be5069173184b924697c6167809097bf
+timeCreated: 1494200292
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Camera
-    100002: Lamp
-    100004: Plane
-    100006: //RootNode
-    100008: Camera.001
-    100010: Lamp.001
-    400000: Camera
-    400002: Lamp
-    400004: Plane
-    400006: //RootNode
-    400008: Camera.001
-    400010: Lamp.001
-    2300000: Plane
-    3300000: Plane
-    4300000: Plane
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: ThunderMachine
   materials:
     importMaterials: 1
     materialName: 0
