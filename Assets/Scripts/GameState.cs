@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour {
 
+	public bool championship;
+	public string[] players;
+	public int currentGame;
+	public int[] points;
+	public int pointsToWin;
+
 	void Awake() 
 	{
 		DontDestroyOnLoad(transform.gameObject);
@@ -11,7 +17,15 @@ public class GameState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		championship = false;
+		players = new string[4];
+		currentGame = -1;
+		points = new int[4];
+		for (int i = 0; i < 4; i++) {
+			points [i] = 0;
+			players [i] = "";
+		}
+		pointsToWin = 0;
 	}
 	
 	// Update is called once per frame
