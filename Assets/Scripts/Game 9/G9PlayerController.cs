@@ -14,7 +14,7 @@ public class G9PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gameOver = false;
-        //comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+        comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
 	}
 	
 	// Update is called once per frame

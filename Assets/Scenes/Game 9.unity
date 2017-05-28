@@ -395,7 +395,7 @@ Prefab:
     - target: {fileID: 114275889786796656, guid: cdf4a2abc3e30ee42aedb7d6f3f73341,
         type: 2}
       propertyPath: comPlayer
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cdf4a2abc3e30ee42aedb7d6f3f73341, type: 2}
