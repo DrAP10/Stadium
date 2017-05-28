@@ -15,7 +15,7 @@ public class G4PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (dead)
+        if (dead || Time.timeScale == 0)
             return;
         if (Input.GetButtonDown(transform.parent.name+" Main"))
         {

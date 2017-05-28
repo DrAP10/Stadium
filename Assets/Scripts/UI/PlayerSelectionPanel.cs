@@ -26,12 +26,13 @@ public class PlayerSelectionPanel : MonoBehaviour {
 	public GameObject p3Nombre;
 	public GameObject p4Text;
 	public GameObject p4Nombre;
-
-
+    
 	bool p1Com;
 	bool p2Com;
 	bool p3Com;
 	bool p4Com;
+
+    bool edit = false;
 
 	// Use this for initialization
 	void Start ()
@@ -44,11 +45,29 @@ public class PlayerSelectionPanel : MonoBehaviour {
 		p3Icon.sprite = p3ComTexture;
 		p4Com = true;
 		p4Icon.sprite = p4ComTexture;
-	}
+        
+        string p1String = PlayerPrefs.GetString("Player1", "Player 1");
+        PlayerPrefs.SetString("Player1", p1String);
+        p1Nombre.GetComponent<InputField>().text = p1String;
+
+        string p2String = PlayerPrefs.GetString("Player2", "Player 2");
+        PlayerPrefs.SetString("Player2", p2String);
+        p2Nombre.GetComponent<InputField>().text = p2String;
+
+        string p3String = PlayerPrefs.GetString("Player3", "Player 3");
+        PlayerPrefs.SetString("Player3", p3String);
+        p3Nombre.GetComponent<InputField>().text = p3String;
+
+        string p4String = PlayerPrefs.GetString("Player4", "Player 4");
+        PlayerPrefs.SetString("Player4", p4String);
+        p4Nombre.GetComponent<InputField>().text = p4String;
+    }
 	
 	// Update is called once per frame
 	void Update () 
 	{
+        if (edit)
+            return;
 		if (Input.GetButtonDown ("P1 Main")) {
 			if (p1Com) 
 				p1Icon.sprite = p1Texture;
@@ -85,10 +104,26 @@ public class PlayerSelectionPanel : MonoBehaviour {
 			p4Text.SetActive (p4Com);
 			p4Nombre.SetActive (!p4Com);
 		}
-
-		if (Input.GetButtonDown ("Submit"))
-			Camera.main.GetComponent<MenuScript> ().GoToGameSelection ();
+        
+        if (Input.GetButtonDown("Continue"))
+        {
+            PlayerPrefs.SetString("Player1", p1Nombre.GetComponent<InputField>().text);
+            PlayerPrefs.SetString("Player2", p2Nombre.GetComponent<InputField>().text);
+            PlayerPrefs.SetString("Player3", p3Nombre.GetComponent<InputField>().text);
+            PlayerPrefs.SetString("Player4", p4Nombre.GetComponent<InputField>().text);
+            Camera.main.GetComponent<MenuScript>().GoToGameSelection();
+        }
 		if (Input.GetButtonDown ("Cancel"))
 			Camera.main.GetComponent<MenuScript> ().GoToModeSelection ();
 	}
+
+    public void StartEdit()
+    {
+        edit = true;
+    }
+    public void EndEdit()
+    {
+        edit = false;
+        Input.GetButtonDown("Continue");//Consumo el buttonDown para que no lo tenga en cuenta hasta que levante y vuelva a pulsar
+    }
 }

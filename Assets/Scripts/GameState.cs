@@ -32,4 +32,10 @@ public class GameState : MonoBehaviour {
 	void Update () {
 		
 	}
+    void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("Screenmanager Resolution Width", 800);
+        PlayerPrefs.SetInt("Screenmanager Resolution Height", 600);
+        PlayerPrefs.SetInt("Screenmanager Is Fullscreen mode", 0);
+    }
 }

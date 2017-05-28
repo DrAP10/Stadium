@@ -13,6 +13,8 @@ public class G5PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Time.timeScale == 0)
+            return;
         if (Input.GetButtonDown(transform.name+" Main")&&currentBlue)
         {
             TakeDamage(2);
@@ -29,14 +31,6 @@ public class G5PlayerController : MonoBehaviour {
             TakeDamage(-2);
             time = 0;
         }
-        /*if (Input.GetButtonDown("Fire1") && !currentBlue)
-        {
-            TakeDamage(-2);
-        }
-        if (Input.GetButtonDown("Fire2") && currentBlue)
-        {
-            TakeDamage(-2);
-        }*/
     }
 
     public void TakeDamage(int amount)

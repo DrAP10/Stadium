@@ -37,13 +37,9 @@ public class G8PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-        /*if (Input.GetButtonDown("Fire1")&&!gameObject.GetComponent<Animation>().IsPlaying("Impact"))
-        {
-            gameObject.GetComponent<Renderer>().material = gold;
-            fortaleza = true;
-        }*/
-        if (dead)
+	void Update ()
+    {
+        if (dead || Time.timeScale == 0)
             return;
         if (Input.GetButton(transform.parent.name+" Main"))
         {

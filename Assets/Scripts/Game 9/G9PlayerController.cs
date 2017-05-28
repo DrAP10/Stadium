@@ -13,6 +13,8 @@ public class G9PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (Time.timeScale == 0)
+            return;
         if (win && gameObject.GetComponent<Animation>().IsPlaying("Win"))
             return;
         else if (win && !gameObject.GetComponent<Animation>().IsPlaying("Win") && !gameObject.GetComponent<Animation>().IsPlaying("Rotation"))

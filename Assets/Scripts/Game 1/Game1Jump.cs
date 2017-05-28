@@ -17,6 +17,8 @@ public class Game1Jump : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (Time.deltaTime == 0)
+            return;
         if (Input.GetButtonDown(transform.parent.name+" Main")&&floor)
         {
             position = 0.15f;

@@ -15,7 +15,7 @@ public class G3PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (gameOver)
+        if (gameOver || Time.timeScale == 0)
             return;
         time += Time.deltaTime;
         bool hit = gameObject.GetComponent<Animation>().IsPlaying("Impact");

@@ -56,4 +56,5 @@ public class MenuScript : MonoBehaviour {
 		playerSelection.SetActive (false);
 		championshipConfiguration.SetActive (true);
 	}
+    
 }
