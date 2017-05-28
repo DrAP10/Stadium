@@ -42,6 +42,6 @@ public class PauseGameScript : MonoBehaviour {
         isPause = false;
         Time.timeScale = 1;
         exitMenu.SetActive(isPause);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

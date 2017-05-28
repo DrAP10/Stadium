@@ -1,32 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameState : MonoBehaviour {
 
 	public bool championship;
-	public string[] players;
+	public bool[] players;
 	public int currentGame;
 	public int[] points;
 	public int pointsToWin;
 
 	void Awake() 
 	{
-		DontDestroyOnLoad(transform.gameObject);
-	}
+		DontDestroyOnLoad(transform.gameObject); championship = false;
+        players = new bool[4];
+        currentGame = -1;
+        points = new int[4];
+        for (int i = 0; i < 4; i++)
+        {
+            points[i] = 0;
+            players[i] = false;
+        }
+        pointsToWin = 0;
+    }
 
 	// Use this for initialization
-	void Start () {
-		championship = false;
-		players = new string[4];
-		currentGame = -1;
-		points = new int[4];
-		for (int i = 0; i < 4; i++) {
-			points [i] = 0;
-			players [i] = "";
-		}
-		pointsToWin = 0;
-	}
+	void Start ()
+    {
+        SceneManager.LoadScene(1);
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -33,19 +33,32 @@ public class PlayerSelectionPanel : MonoBehaviour {
 	bool p4Com;
 
     bool edit = false;
+    GameState gameState;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
 	{
-		p1Com = false;
-		p1Icon.sprite = p1Texture;
-		p2Com = true;
-		p2Icon.sprite = p2ComTexture;
-		p3Com = true;
-		p3Icon.sprite = p3ComTexture;
-		p4Com = true;
-		p4Icon.sprite = p4ComTexture;
-        
+        gameState = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
+		p1Com = !gameState.players[0];
+		p1Icon.sprite = (p1Com) ? p1ComTexture : p1Texture;
+        p1Text.SetActive(p1Com);
+        p1Nombre.SetActive(!p1Com);
+
+        p2Com = !gameState.players[1];
+		p2Icon.sprite = (p2Com) ? p2ComTexture : p2Texture;
+        p2Text.SetActive(p2Com);
+        p2Nombre.SetActive(!p2Com);
+
+        p3Com = !gameState.players[2];
+		p3Icon.sprite = (p3Com) ? p3ComTexture : p3Texture;
+        p3Text.SetActive(p3Com);
+        p3Nombre.SetActive(!p3Com);
+
+        p4Com = !gameState.players[3];
+		p4Icon.sprite = (p4Com) ? p4ComTexture : p4Texture;
+        p4Text.SetActive(p4Com);
+        p4Nombre.SetActive(!p4Com);
+
         string p1String = PlayerPrefs.GetString("Player1", "Player 1");
         PlayerPrefs.SetString("Player1", p1String);
         p1Nombre.GetComponent<InputField>().text = p1String;
@@ -73,7 +86,8 @@ public class PlayerSelectionPanel : MonoBehaviour {
 				p1Icon.sprite = p1Texture;
 			else
 				p1Icon.sprite = p1ComTexture;
-			p1Com = !p1Com;
+            gameState.players[0]=p1Com;
+            p1Com = !p1Com;
 			p1Text.SetActive (p1Com);
 			p1Nombre.SetActive (!p1Com);
 		}
@@ -82,7 +96,8 @@ public class PlayerSelectionPanel : MonoBehaviour {
 				p2Icon.sprite = p2Texture;
 			else
 				p2Icon.sprite = p2ComTexture;
-			p2Com = !p2Com;
+            gameState.players[1] = p2Com;
+            p2Com = !p2Com;
 			p2Text.SetActive (p2Com);
 			p2Nombre.SetActive (!p2Com);
 		}
@@ -91,7 +106,8 @@ public class PlayerSelectionPanel : MonoBehaviour {
 				p3Icon.sprite = p3Texture;
 			else
 				p3Icon.sprite = p3ComTexture;
-			p3Com = !p3Com;
+            gameState.players[2] = p3Com;
+            p3Com = !p3Com;
 			p3Text.SetActive (p3Com);
 			p3Nombre.SetActive (!p3Com);
 		}
@@ -100,7 +116,8 @@ public class PlayerSelectionPanel : MonoBehaviour {
 				p4Icon.sprite = p4Texture;
 			else
 				p4Icon.sprite = p4ComTexture;
-			p4Com = !p4Com;
+            gameState.players[3] = p4Com;
+            p4Com = !p4Com;
 			p4Text.SetActive (p4Com);
 			p4Nombre.SetActive (!p4Com);
 		}

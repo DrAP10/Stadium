@@ -8,6 +8,8 @@ TagManager:
   - Rock 2
   - Rock 3
   - Rock 4
+  - Rock
+  - GameState
   layers:
   - Default
   - TransparentFX
