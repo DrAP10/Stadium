@@ -70,7 +70,7 @@ public class G9PlayerController : MonoBehaviour {
             comTime -= Time.deltaTime;
             if (comTime <= 0)
             {
-                comTime = Random.Range(0.05f, 0.2f);
+                comTime = Random.Range(0.07f, 0.15f);
                 if (points > 8)
                     transform.Translate(transform.up * (-0.04f));
                 GetComponent<G9ModifyTerrain>().LowerTerrain();
