@@ -6,31 +6,54 @@ public class G5PlayerController : MonoBehaviour {
     public bool currentBlue;
     public RectTransform progressBar;
     float time = 0;
+
+	public int id;
+	public bool comPlayer;
+
+	//AI
+	float next=0;
+
     // Use this for initialization
     void Start () {
-        progressBar.sizeDelta = new Vector2(progress, progressBar.sizeDelta.y);
+		progressBar.sizeDelta = new Vector2(progress, progressBar.sizeDelta.y);
+		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Time.timeScale == 0)
             return;
-        if (Input.GetButtonDown(transform.name+" Main")&&currentBlue)
-        {
-            TakeDamage(2);
-            time = 0;
-        }
-        if (Input.GetButtonDown(transform.name + " Secondary") && !currentBlue)
-        {
-            TakeDamage(2);
-            time = 0;
-        }
-        time += Time.deltaTime;
-        if (time > 0.5f)
-        {
-            TakeDamage(-2);
-            time = 0;
-        }
+		if (!comPlayer) {
+			if (Input.GetButtonDown (transform.name + " Main") && currentBlue) {
+				TakeDamage (2);
+				time = 0;
+			}
+			if (Input.GetButtonDown (transform.name + " Secondary") && !currentBlue) {
+				TakeDamage (2);
+				time = 0;
+			}
+			time += Time.deltaTime;
+			if (time > 0.5f) {
+				TakeDamage (-2);
+				time = 0;
+			}
+		} 
+		else //AI
+		{
+			next-=Time.deltaTime;
+			if(next<=0)
+			{
+				if (Random.Range (0, 10) != 1)//90%
+				{
+					TakeDamage (2);
+				} 
+				else 
+				{
+					TakeDamage (-2);
+				}
+				next = Random.Range (0.1f, 0.2f);
+			}
+		}
     }
 
     public void TakeDamage(int amount)
@@ -42,6 +65,12 @@ public class G5PlayerController : MonoBehaviour {
         {
             progress = 100;
             Debug.Log("Win!");
+			bool[] winners = new bool[4];
+			for (int i = 0; i < 4; i++) 
+			{
+				winners [i] = i == id;
+			}
+			GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
             //GameObject.Find("ColorBall").SetActive(false);
             //gameObject.GetComponent<Animation>().Play("Dead", PlayMode.StopAll);
         }
