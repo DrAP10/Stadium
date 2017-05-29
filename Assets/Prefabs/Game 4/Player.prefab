@@ -5,9 +5,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 453870}
+  - component: {fileID: 453870}
   m_Layer: 0
   m_Name: Z Spawn
   m_TagString: Untagged
@@ -20,9 +20,9 @@ GameObject:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 476928}
+  - component: {fileID: 476928}
   m_Layer: 0
   m_Name: Hypno Spawn
   m_TagString: Untagged
@@ -35,9 +35,9 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 481030}
+  - component: {fileID: 481030}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -50,14 +50,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 487886}
-  - 33: {fileID: 3314558}
-  - 136: {fileID: 13603192}
-  - 23: {fileID: 2362200}
-  - 111: {fileID: 11109494}
-  - 114: {fileID: 11443376}
+  - component: {fileID: 487886}
+  - component: {fileID: 3314558}
+  - component: {fileID: 13603192}
+  - component: {fileID: 2362200}
+  - component: {fileID: 11109494}
+  - component: {fileID: 11443376}
   m_Layer: 0
   m_Name: Drowzee
   m_TagString: Player
@@ -74,10 +74,10 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.92387944, z: 0, w: -0.38268363}
   m_LocalPosition: {x: -0.2, y: 1, z: -0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
   m_Children: []
   m_Father: {fileID: 487886}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!4 &476928
 Transform:
   m_ObjectHideFlags: 1
@@ -87,10 +87,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 487886}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &481030
 Transform:
   m_ObjectHideFlags: 1
@@ -100,11 +100,11 @@ Transform:
   m_LocalRotation: {x: 0, y: 0.92387944, z: 0, w: -0.38268363}
   m_LocalPosition: {x: 2, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 225, z: 0}
   m_Children:
   - {fileID: 487886}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 225, z: 0}
 --- !u!4 &487886
 Transform:
   m_ObjectHideFlags: 1
@@ -114,12 +114,12 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 453870}
   - {fileID: 476928}
   m_Father: {fileID: 481030}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2362200
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -129,22 +129,28 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 52d9e95c27b23b84fb1c6832fd43b439, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3314558
 MeshFilter:
@@ -179,8 +185,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a03464ad09934469e870b9ea329a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dead: 0
   zObject: {fileID: 139024, guid: 4c352b4309dd41f4da0f8eb1ac85f48e, type: 2}
   hypnoObject: {fileID: 176886, guid: a1e6f2af934890b4ab6a79eee6b41970, type: 2}
+  id: 0
+  comPlayer: 0
 --- !u!136 &13603192
 CapsuleCollider:
   m_ObjectHideFlags: 1

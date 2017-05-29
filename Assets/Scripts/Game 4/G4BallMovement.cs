@@ -33,7 +33,7 @@ public class G4BallMovement : MonoBehaviour {
             speed = speedBase + Mathf.PI / 4;
         else
             speed = speedBase + Mathf.PI / 2;
-        Debug.Log(angle);
+        //Debug.Log(angle);
         //Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
         if (angle < 2.5f || angle > 3.7832f)
         {
