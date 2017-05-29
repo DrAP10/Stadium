@@ -10,6 +10,8 @@ TagManager:
   - Rock 4
   - Rock
   - GameState
+  - Plane
+  - InGameMenu
   layers:
   - Default
   - TransparentFX

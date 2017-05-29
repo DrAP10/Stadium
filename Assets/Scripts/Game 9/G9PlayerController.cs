@@ -11,9 +11,12 @@ public class G9PlayerController : MonoBehaviour {
     public bool comPlayer;
     float comTime=0;
 
+	float winAnimationTime;
+
 	// Use this for initialization
 	void Start () {
         gameOver = false;
+		winAnimationTime = 3f;
         comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
 	}
 	
@@ -28,8 +31,21 @@ public class G9PlayerController : MonoBehaviour {
             gameObject.GetComponent<Animation>().Play("Rotation");
             return;
         }
-        if (gameOver)
-            return;
+		else if(gameObject.GetComponent<Animation>().IsPlaying("Rotation"))
+		{
+			winAnimationTime -= Time.deltaTime;
+			if (winAnimationTime <= 0) 
+			{
+				bool[] winners = new bool[4];
+				for (int i = 0; i < 4; i++) 
+				{
+					winners [i] = i == id;
+				}
+				GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
+			}
+		}
+		if (gameOver)
+			return;
         if (!comPlayer)
         {
             if ((Input.GetButtonDown(transform.parent.name + " Main") && right)
