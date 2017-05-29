@@ -44,10 +44,10 @@ public class PostGameScript : MonoBehaviour {
 		p2Icon.SetActive (winners [1]);
 		p3Icon.SetActive (winners [2]);
 		p4Icon.SetActive (winners [3]);
-		p1Icon.GetComponent<Image> ().sprite = (gameState.players [0]) ? p1ConTex : p1Tex;
-		p2Icon.GetComponent<Image> ().sprite = (gameState.players [1]) ? p2ConTex : p2Tex;
-		p3Icon.GetComponent<Image> ().sprite = (gameState.players [2]) ? p3ConTex : p3Tex;
-		p4Icon.GetComponent<Image> ().sprite = (gameState.players [3]) ? p4ConTex : p4Tex;
+		p1Icon.GetComponent<Image> ().sprite = (!gameState.players [0]) ? p1ConTex : p1Tex;
+		p2Icon.GetComponent<Image> ().sprite = (!gameState.players [1]) ? p2ConTex : p2Tex;
+		p3Icon.GetComponent<Image> ().sprite = (!gameState.players [2]) ? p3ConTex : p3Tex;
+		p4Icon.GetComponent<Image> ().sprite = (!gameState.players [3]) ? p4ConTex : p4Tex;
 
 		postGamePanel.SetActive(true);
 		Time.timeScale = 0;
