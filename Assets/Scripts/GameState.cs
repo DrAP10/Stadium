@@ -10,6 +10,7 @@ public class GameState : MonoBehaviour {
 	public int currentGame;
 	public int[] points;
 	public int pointsToWin;
+	public int currentMenu;//0=ModeSelection, 1=PlayerSelection, 2=GameSelection
 
 	void Awake() 
 	{
@@ -23,6 +24,7 @@ public class GameState : MonoBehaviour {
             players[i] = false;
         }
         pointsToWin = 0;
+		currentMenu = 0;//ModeSelection
     }
 
 	// Use this for initialization

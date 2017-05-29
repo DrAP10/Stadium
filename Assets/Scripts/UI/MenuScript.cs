@@ -12,7 +12,22 @@ public class MenuScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		GoToModeSelection ();
+		int currentMenu = GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ().currentMenu;
+		switch (currentMenu)
+		{
+		case 0:
+			GoToModeSelection ();
+			break;
+		case 1:
+			GoToPlayerSelection ();
+			break;
+		case 2:
+			GoToGameSelection ();
+			break;
+		default:
+			GoToModeSelection ();
+			break;
+		}
 	}
 	
 	// Update is called once per frame

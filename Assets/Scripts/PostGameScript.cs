@@ -59,6 +59,7 @@ public class PostGameScript : MonoBehaviour {
 		waitingToExit = false;
 		Time.timeScale = 1;
 		postGamePanel.SetActive(false);
+		GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ().currentMenu = 2;
 		SceneManager.LoadScene(1);
 	}
 }

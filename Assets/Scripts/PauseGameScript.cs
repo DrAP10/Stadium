@@ -42,6 +42,7 @@ public class PauseGameScript : MonoBehaviour {
         isPause = false;
         Time.timeScale = 1;
         exitMenu.SetActive(isPause);
+		GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ().currentMenu = 2;
         SceneManager.LoadScene(1);
     }
 }
