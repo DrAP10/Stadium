@@ -31,8 +31,11 @@ public class MenuScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	void Update ()
+    {
+        if (Input.GetButtonDown("Cancel") &&
+            GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu == 2)
+            GoToPlayerSelection();	
 	}
 
 	public void GameSelected(int id)
@@ -42,7 +45,8 @@ public class MenuScript : MonoBehaviour {
 
 	public void GoToPlayerSelection()
 	{
-		modeSelection.SetActive (false);
+        GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu = 1;
+        modeSelection.SetActive (false);
 		gameSelection.SetActive (false);
 		playerSelection.SetActive (true);
 		championshipConfiguration.SetActive (false);
@@ -50,7 +54,8 @@ public class MenuScript : MonoBehaviour {
 
 	public void GoToModeSelection()
 	{
-		modeSelection.SetActive (true);
+        GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu = 0;
+        modeSelection.SetActive (true);
 		gameSelection.SetActive (false);
 		playerSelection.SetActive (false);
 		championshipConfiguration.SetActive (false);
@@ -58,7 +63,8 @@ public class MenuScript : MonoBehaviour {
 
 	public void GoToGameSelection()
 	{
-		modeSelection.SetActive (false);
+        GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu = 2;
+        modeSelection.SetActive (false);
 		gameSelection.SetActive (true);
 		playerSelection.SetActive (false);
 		championshipConfiguration.SetActive (false);
