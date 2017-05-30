@@ -2,8 +2,11 @@
 using System.Collections;
 
 public class G8PlayerController : MonoBehaviour {
-    public Material gold;
-    public Material color;
+	public Material goldBody;
+	public Material goldEye;
+	public Material originalBody;
+	public Material originalEye;
+	public GameObject kakuna;
     public bool harden;
     public bool dead;
     public const float maxHealth = 100;
@@ -20,8 +23,9 @@ public class G8PlayerController : MonoBehaviour {
         {
             currentHealth = 0;
             Debug.Log("Dead!");
-            dead = true;
-            gameObject.GetComponent<Renderer>().material = color;
+			dead = true;
+			Material[] mats = new Material[]{originalBody, originalEye};
+			kakuna.GetComponent<SkinnedMeshRenderer>().materials = mats;
             string name = transform.parent.name;
             GameObject.Find("RockSpawns").transform.Find(name).gameObject.SetActive(false);
             foreach (GameObject rock in GameObject.FindGameObjectsWithTag("Rock "+name.Substring(name.Length - 1)))
@@ -29,6 +33,7 @@ public class G8PlayerController : MonoBehaviour {
                 Destroy(rock);
             }
             gameObject.GetComponent<Animation>().Play("Dead",PlayMode.StopAll);
+			GetComponentInChildren<Animator> ().SetBool ("Harden", true);
 
 			int idWinner=-1;
 			int playersAlive=0;
@@ -68,18 +73,21 @@ public class G8PlayerController : MonoBehaviour {
 		if (!comPlayer) {
 			if (Input.GetButton (transform.parent.name + " Main")) {
 				if (!harden && !gameObject.GetComponent<Animation> ().IsPlaying ("Impact")) {
-					gameObject.GetComponent<Renderer> ().material = gold;
+					Material[] mats = new Material[]{goldBody, goldEye};
+					kakuna.GetComponent<SkinnedMeshRenderer>().materials = mats;
 					harden = true;
 				}
 				TakeDamage (Time.deltaTime * 10);
 			}
 			if (Input.GetButtonUp (transform.parent.name + " Main") && harden) {
-				gameObject.GetComponent<Renderer> ().material = color;
+				Material[] mats = new Material[]{originalBody, originalEye};
+				kakuna.GetComponent<SkinnedMeshRenderer>().materials = mats;
 				harden = false;
 			}
 		} else 
 		{
 			//IA
 		}
+		GetComponentInChildren<Animator> ().SetBool ("Harden", harden);
 	}
 }
