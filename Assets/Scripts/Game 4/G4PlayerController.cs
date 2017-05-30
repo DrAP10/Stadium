@@ -23,6 +23,7 @@ public class G4PlayerController : MonoBehaviour {
 	{
 		dead = false;
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+		GetComponentInChildren<Animator> ().SetTrigger ("Hypno");
 	}
 	
 	// Update is called once per frame
@@ -82,6 +83,7 @@ public class G4PlayerController : MonoBehaviour {
         if (health <= 0)
         {
             gameObject.GetComponent<Animation>().Play("Dead");
+			GetComponentInChildren<Animator> ().SetTrigger ("Dead");
             dead = true;
 
 			int idWinner=-1;
@@ -107,5 +109,6 @@ public class G4PlayerController : MonoBehaviour {
         GameObject o=Instantiate(zObject,transform.Find("Z Spawn").position, transform.Find("Z Spawn").rotation) as GameObject;
         Destroy(o, 0.2f);
 		GetComponent<AudioSource> ().PlayOneShot (sleepClip);
+		GetComponentInChildren<Animator> ().SetTrigger ("Sleep");
     }
 }

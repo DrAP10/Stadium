@@ -141,6 +141,7 @@ MonoBehaviour:
   currentGame: 0
   points: 
   pointsToWin: 0
+  currentMenu: 0
 --- !u!114 &775750784
 MonoBehaviour:
   m_ObjectHideFlags: 0
