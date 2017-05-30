@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Game1Impact : MonoBehaviour {
-    int points;
+    public int points;
 	// Use this for initialization
 	void Start () {
         points = 0;

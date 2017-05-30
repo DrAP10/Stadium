@@ -9,9 +9,12 @@ public class Game1Jump : MonoBehaviour {
     float position;
     public bool goingUp;
 
+	public int id;
+	public bool comPlayer;
+
 	// Use this for initialization
 	void Start () {
-	
+		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
 	}
 
 	// Update is called once per frame
@@ -19,7 +22,8 @@ public class Game1Jump : MonoBehaviour {
     {
         if (Time.deltaTime == 0)
             return;
-        if (Input.GetButtonDown(transform.parent.name+" Main")&&floor)
+		if ((!comPlayer && Input.GetButtonDown(transform.parent.name+" Main")&&floor)
+			||(comPlayer && Random.Range(0,2)==1 && floor))
         {
             position = 0.15f;
             time = 0f;
@@ -31,7 +35,8 @@ public class Game1Jump : MonoBehaviour {
         if(!floor)
         {
             time += Time.deltaTime;
-            if (Input.GetButton(transform.parent.name + " Main") &&goingUp)
+			if ((!comPlayer && Input.GetButton(transform.parent.name + " Main") && goingUp)
+				||(comPlayer && goingUp))
             {
                 position = position + speed * time;
             }
