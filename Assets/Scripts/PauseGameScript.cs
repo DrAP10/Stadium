@@ -10,7 +10,6 @@ public class PauseGameScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -20,13 +19,14 @@ public class PauseGameScript : MonoBehaviour {
         {
             isPause = !isPause;
             exitMenu.SetActive(isPause);
-            if (isPause)
-            {
-                Time.timeScale = 0;
-                return;
-            }
-            else
-                Time.timeScale = 1;
+			if (isPause) {
+				//GameObject.FindGameObjectWithTag("InGameMenu").gameObject.GetComponent<AudioSource> ().Pause;
+				Time.timeScale = 0;
+				return;
+			} else {
+				//GameObject.FindGameObjectWithTag("InGameMenu").gameObject.GetComponent<AudioSource> ().UnPause();
+				Time.timeScale = 1;
+			}
         }
     }
 

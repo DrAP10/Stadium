@@ -662,6 +662,11 @@ Prefab:
       propertyPath: scriptsContainers.Array.data[4]
       value: 
       objectReference: {fileID: 982918340}
+    - target: {fileID: 82625695873550524, guid: 9936afc7fbf6fce458a91d31bb6415ee,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 40cc77a87966d46f9ac75207afcd4c2a, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9936afc7fbf6fce458a91d31bb6415ee, type: 2}
   m_IsPrefabParent: 0
@@ -800,6 +805,7 @@ MonoBehaviour:
   currentHealth: 100
   healthBar: {fileID: 445723685}
   id: 2
+  comPlayer: 0
 --- !u!111 &724526723
 Animation:
   m_ObjectHideFlags: 0
@@ -1267,6 +1273,7 @@ MonoBehaviour:
   currentHealth: 100
   healthBar: {fileID: 890844567}
   id: 3
+  comPlayer: 0
 --- !u!111 &1189026831
 Animation:
   m_ObjectHideFlags: 0
@@ -1414,6 +1421,7 @@ MonoBehaviour:
   currentHealth: 100
   healthBar: {fileID: 52651636}
   id: 1
+  comPlayer: 0
 --- !u!111 &1230099217
 Animation:
   m_ObjectHideFlags: 0
@@ -1552,6 +1560,7 @@ GameObject:
   - component: {fileID: 1373189292}
   - component: {fileID: 1373189291}
   - component: {fileID: 1373189290}
+  - component: {fileID: 1373189295}
   m_Layer: 0
   m_Name: Main Camera (1)
   m_TagString: MainCamera
@@ -1629,6 +1638,86 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1373189295
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373189289}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 40cc77a87966d46f9ac75207afcd4c2a, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.65
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!1 &1397604116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1749,6 +1838,7 @@ MonoBehaviour:
   currentHealth: 100
   healthBar: {fileID: 11341273}
   id: 0
+  comPlayer: 0
 --- !u!111 &1455515361
 Animation:
   m_ObjectHideFlags: 0

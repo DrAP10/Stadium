@@ -51,6 +51,7 @@ public class G3PlayerController : MonoBehaviour {
 			}
 			if (Input.GetButtonDown (transform.parent.name + " Secondary") && !hit) {
 				gameObject.GetComponent<Animation> ().Play ("Jump", PlayMode.StopAll);
+				GetComponent<AudioSource> ().Play ();
 			}
 		} 
 		else 
@@ -99,8 +100,10 @@ public class G3PlayerController : MonoBehaviour {
 		if(collider.name=="JumpRange" && comPlayer)
 		{
 			print (Random.Range (0, 4));
-			if(Random.Range(0,4)!=1)//80%
+			if (Random.Range (0, 4) != 1) {//80%
 				gameObject.GetComponent<Animation> ().Play ("Jump", PlayMode.StopAll);
+				GetComponent<AudioSource> ().Play ();
+			}
 			Destroy (collider.gameObject);
 		}
 	}

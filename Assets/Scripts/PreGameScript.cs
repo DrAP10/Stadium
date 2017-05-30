@@ -11,6 +11,7 @@ public class PreGameScript : MonoBehaviour {
     public Sprite number2;
     public Sprite number3;
 
+
     public float countDown = 3;
 	// Use this for initialization
 	void Start () {
@@ -42,6 +43,7 @@ public class PreGameScript : MonoBehaviour {
                     script.enabled = true;
                 }
             }
+			//GameObject.FindGameObjectWithTag("InGameMenu").gameObject.GetComponent<AudioSource> ().Play ();
         }
         else if(old > 2 && countDown <= 2)
             countDownMenu.GetComponent<Image>().sprite = number2;

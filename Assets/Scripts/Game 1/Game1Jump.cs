@@ -25,6 +25,7 @@ public class Game1Jump : MonoBehaviour {
 		if ((!comPlayer && Input.GetButtonDown(transform.parent.name+" Main")&&floor)
 			||(comPlayer && Random.Range(0,2)==1 && floor))
         {
+			GetComponent<AudioSource> ().Play ();
             position = 0.15f;
             time = 0f;
             speed = 50f;

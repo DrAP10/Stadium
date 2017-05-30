@@ -12,6 +12,7 @@ TagManager:
   - GameState
   - Plane
   - InGameMenu
+  - ThemeSource
   layers:
   - Default
   - TransparentFX

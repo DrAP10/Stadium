@@ -9,6 +9,9 @@ public class G4PlayerController : MonoBehaviour {
     public GameObject zObject;
     public GameObject hypnoObject;
 
+	public AudioClip hypnoClip;
+	public AudioClip sleepClip;
+
 	public int id;
 	public bool comPlayer;
 
@@ -31,6 +34,7 @@ public class G4PlayerController : MonoBehaviour {
 				if (onSide) {
 					hypno = true;
 					GameObject o = Instantiate (hypnoObject, transform.Find ("Hypno Spawn").position, transform.Find ("Hypno Spawn").rotation) as GameObject;
+					GetComponent<AudioSource> ().PlayOneShot (hypnoClip);
 					Destroy (o, 0.2f);
 				} else
 					TakeDemage ();
@@ -59,6 +63,7 @@ public class G4PlayerController : MonoBehaviour {
 					hypno = true;
 					GameObject o = Instantiate (hypnoObject, transform.Find ("Hypno Spawn").position, transform.Find ("Hypno Spawn").rotation) as GameObject;
 					Destroy (o, 0.2f);
+					GetComponent<AudioSource> ().PlayOneShot (hypnoClip);
 				} 
 				else
 					TakeDemage ();
@@ -101,5 +106,6 @@ public class G4PlayerController : MonoBehaviour {
         }
         GameObject o=Instantiate(zObject,transform.Find("Z Spawn").position, transform.Find("Z Spawn").rotation) as GameObject;
         Destroy(o, 0.2f);
+		GetComponent<AudioSource> ().PlayOneShot (sleepClip);
     }
 }
