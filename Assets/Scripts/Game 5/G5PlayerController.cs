@@ -23,13 +23,16 @@ public class G5PlayerController : MonoBehaviour {
 	void Update () {
         if (Time.timeScale == 0)
             return;
+		bool loading = false;
 		if (!comPlayer) {
 			if (Input.GetButtonDown (transform.name + " Main") && currentBlue) {
 				TakeDamage (2);
+				loading = true;
 				time = 0;
 			}
 			if (Input.GetButtonDown (transform.name + " Secondary") && !currentBlue) {
 				TakeDamage (2);
+				loading = true;
 				time = 0;
 			}
 			time += Time.deltaTime;
@@ -46,6 +49,7 @@ public class G5PlayerController : MonoBehaviour {
 				if (Random.Range (0, 10) != 1)//90%
 				{
 					TakeDamage (2);
+					loading = true;
 				} 
 				else 
 				{
@@ -54,6 +58,7 @@ public class G5PlayerController : MonoBehaviour {
 				next = Random.Range (0.1f, 0.2f);
 			}
 		}
+		GetComponentInChildren<Animator> ().SetBool ("Loading", loading);
     }
 
     public void TakeDamage(int amount)
@@ -64,6 +69,7 @@ public class G5PlayerController : MonoBehaviour {
         if (progress >= 100)
         {
             progress = 100;
+			GetComponentInChildren<Animator> ().SetBool ("Loading", false);
             Debug.Log("Win!");
 			bool[] winners = new bool[4];
 			for (int i = 0; i < 4; i++) 
