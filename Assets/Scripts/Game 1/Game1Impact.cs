@@ -20,6 +20,7 @@ public class Game1Impact : MonoBehaviour {
             collision.gameObject.GetComponent<Game1Jump>().speed = 0f;
             collision.gameObject.GetComponent<Game1Jump>().goingUp = false;
 			transform.parent.gameObject.GetComponent<Animator> ().SetTrigger ("ImpactTrigger");
+            transform.parent.transform.parent.gameObject.GetComponentInChildren<Animator>().SetTrigger("CounterImpact");
             Debug.Log(transform.parent.gameObject.name);
             points++;
             string pointsString = points.ToString();

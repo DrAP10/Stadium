@@ -26,6 +26,7 @@ public class Game1Jump : MonoBehaviour {
 			||(comPlayer && Random.Range(0,2)==1 && floor))
         {
 			GetComponent<AudioSource> ().Play ();
+            GetComponentInChildren<Animator>().SetTrigger("Jump");
             position = 0.15f;
             time = 0f;
             speed = 50f;
@@ -60,7 +61,11 @@ public class Game1Jump : MonoBehaviour {
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.name.Equals("Plane"))
+        {
+            if(!floor)
+                GetComponentInChildren<Animator>().SetTrigger("FloorImpact");
             floor = true;
+        }
     }
 
     void OnCollisionExit(Collision collision)

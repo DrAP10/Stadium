@@ -1,0 +1,311 @@
+fileFormatVersion: 2
+guid: 295537550950e2f4d84828c6f73d06f8
+timeCreated: 1496247058
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Armature
+    100002: head
+    100004: head_end
+    100006: //RootNode
+    100008: magikarp_mesh
+    100010: spine1
+    100012: spine2
+    100014: tail1.B
+    100016: tail1.L
+    100018: tail1.R
+    100020: tail2.B
+    100022: tail2.B_end
+    100024: tail2.L
+    100026: tail2.R
+    100028: tail3.L
+    100030: tail3.L_end
+    100032: tail3.R
+    100034: tail3.R_end
+    400000: Armature
+    400002: head
+    400004: head_end
+    400006: //RootNode
+    400008: magikarp_mesh
+    400010: spine1
+    400012: spine2
+    400014: tail1.B
+    400016: tail1.L
+    400018: tail1.R
+    400020: tail2.B
+    400022: tail2.B_end
+    400024: tail2.L
+    400026: tail2.R
+    400028: tail3.L
+    400030: tail3.L_end
+    400032: tail3.R
+    400034: tail3.R_end
+    4300000: magikarp_mesh
+    7400000: Jump
+    7400002: Counter Impact
+    7400004: Floor Impact
+    9500000: //RootNode
+    13700000: magikarp_mesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Jump
+      takeName: Armature|ArmatureAction
+      firstFrame: 1
+      lastFrame: 13
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/spine1
+        weight: 1
+      - path: Armature/spine1/spine2
+        weight: 1
+      - path: Armature/spine1/spine2/head
+        weight: 1
+      - path: Armature/spine1/spine2/head/head_end
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L/tail3.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L/tail3.L/tail3.L_end
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R/tail3.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R/tail3.R/tail3.R_end
+        weight: 1
+      - path: Armature/spine1/tail1.B
+        weight: 1
+      - path: Armature/spine1/tail1.B/tail2.B
+        weight: 1
+      - path: Armature/spine1/tail1.B/tail2.B/tail2.B_end
+        weight: 1
+      - path: magikarp_mesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Counter Impact
+      takeName: Armature|ArmatureAction
+      firstFrame: 43
+      lastFrame: 61
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/spine1
+        weight: 1
+      - path: Armature/spine1/spine2
+        weight: 1
+      - path: Armature/spine1/spine2/head
+        weight: 1
+      - path: Armature/spine1/spine2/head/head_end
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L/tail3.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L/tail3.L/tail3.L_end
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R/tail3.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R/tail3.R/tail3.R_end
+        weight: 1
+      - path: Armature/spine1/tail1.B
+        weight: 1
+      - path: Armature/spine1/tail1.B/tail2.B
+        weight: 1
+      - path: Armature/spine1/tail1.B/tail2.B/tail2.B_end
+        weight: 1
+      - path: magikarp_mesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Floor Impact
+      takeName: Armature|ArmatureAction
+      firstFrame: 61
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/spine1
+        weight: 1
+      - path: Armature/spine1/spine2
+        weight: 1
+      - path: Armature/spine1/spine2/head
+        weight: 1
+      - path: Armature/spine1/spine2/head/head_end
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L/tail3.L
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.L/tail2.L/tail3.L/tail3.L_end
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R/tail3.R
+        weight: 1
+      - path: Armature/spine1/spine2/tail1.R/tail2.R/tail3.R/tail3.R_end
+        weight: 1
+      - path: Armature/spine1/tail1.B
+        weight: 1
+      - path: Armature/spine1/tail1.B/tail2.B
+        weight: 1
+      - path: Armature/spine1/tail1.B/tail2.B/tail2.B_end
+        weight: 1
+      - path: magikarp_mesh
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
