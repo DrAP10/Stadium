@@ -18,7 +18,9 @@ public class G9PlayerController : MonoBehaviour {
         gameOver = false;
 		winAnimationTime = 3f;
         comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
-	}
+
+        GetComponentInChildren<Animator>().SetTrigger("Start");
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -56,8 +58,10 @@ public class G9PlayerController : MonoBehaviour {
                     transform.Translate(transform.up * (-0.04f));
                 GetComponent<G9ModifyTerrain>().LowerTerrain();
                 points++;
+                GetComponentInChildren<Animator>().SetTrigger("Dig");
                 if (points > 100)
                 {
+                    GetComponentInChildren<Animator>().SetTrigger("Stop");
                     gameObject.GetComponent<Animation>().Play("Win");
                     win = true;
                     foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
@@ -74,10 +78,12 @@ public class G9PlayerController : MonoBehaviour {
                 if (points > 8)
                     transform.Translate(transform.up * (-0.04f));
                 GetComponent<G9ModifyTerrain>().LowerTerrain();
+                GetComponentInChildren<Animator>().SetTrigger("Dig");
                 points++;
                 if (points > 100)
                 {
                     gameObject.GetComponent<Animation>().Play("Win");
+                    GetComponentInChildren<Animator>().SetTrigger("Stop");
                     win = true;
                     foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
                         player.GetComponent<G9PlayerController>().gameOver = true;
