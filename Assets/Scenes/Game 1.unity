@@ -178,6 +178,11 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 570fae620684c42e2bb787fe2cf6d8df, type: 3}
+    - target: {fileID: 82625695873550524, guid: 9936afc7fbf6fce458a91d31bb6415ee,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9936afc7fbf6fce458a91d31bb6415ee, type: 2}
   m_IsPrefabParent: 0
@@ -415,6 +420,11 @@ Prefab:
     - target: {fileID: 1225796291317472, guid: 607962fbf26474a6f86386178418f1a5, type: 2}
       propertyPath: m_Name
       value: P4
+      objectReference: {fileID: 0}
+    - target: {fileID: 82537554535064066, guid: 607962fbf26474a6f86386178418f1a5,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 607962fbf26474a6f86386178418f1a5, type: 2}
@@ -780,6 +790,16 @@ Prefab:
     - target: {fileID: 114712193465278274, guid: 607962fbf26474a6f86386178418f1a5,
         type: 2}
       propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 82537554535064066, guid: 607962fbf26474a6f86386178418f1a5,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114712193465278274, guid: 607962fbf26474a6f86386178418f1a5,
+        type: 2}
+      propertyPath: id
       value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
