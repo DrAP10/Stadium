@@ -625,6 +625,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114200084298167740, guid: 9936afc7fbf6fce458a91d31bb6415ee,
+        type: 2}
+      propertyPath: scriptsContainers.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4846247141467910, guid: 9936afc7fbf6fce458a91d31bb6415ee, type: 2}
       propertyPath: m_LocalPosition.x
       value: 382
@@ -766,6 +771,11 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: 2ca6d64477ff849eb9d802821dc85203, type: 3}
+    - target: {fileID: 82625695873550524, guid: 9936afc7fbf6fce458a91d31bb6415ee,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9936afc7fbf6fce458a91d31bb6415ee, type: 2}
   m_IsPrefabParent: 0
