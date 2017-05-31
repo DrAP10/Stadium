@@ -18,7 +18,7 @@ public class BarrierSpawn : MonoBehaviour {
                     new Vector3(plane.transform.position.x, plane.transform.position.y + 1f, nextPosition*10),
                     plane.transform.rotation) as GameObject;
                 barrierObject.transform.parent = plane.transform;
-                barrierObject.transform.localScale = new Vector3(10, 1, 0.005f);
+                barrierObject.transform.localScale = new Vector3(10, 2, 0.005f);
             }
             lastPosition = nextPosition;
         }
