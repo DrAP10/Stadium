@@ -22,21 +22,21 @@ public class G3PlayerController : MonoBehaviour {
     {
         if (gameOver || Time.timeScale == 0)
             return;
-        time += Time.deltaTime;
-        bool hit = gameObject.GetComponent<Animation>().IsPlaying("Impact");
-        bool jump = gameObject.GetComponent<Animation>().IsPlaying("Jump");
-        bool run = gameObject.GetComponent<Animation>().IsPlaying("Run");
+		time += Time.deltaTime;
+		bool hit = gameObject.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Impact");
+		bool jump = gameObject.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump");
+		bool run = gameObject.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Run");
         if (hit)
             return;
-        if (speed != 0 && !jump && !run && !hit)
-            gameObject.GetComponent<Animation>().Play("Run");
+        /*if (speed != 0 && !jump && !run && !hit)
+			gameObject.GetComponentInChildren<Animator>().SetFloat("Speed");
         else if (speed == 0 && run)
-            gameObject.GetComponent<Animation>().Stop("Run");
+			gameObject.GetComponentInChildren<Animator>().Stop("Run");
         else
         {
             gameObject.transform.position = new Vector3(transform.position.x, 1, transform.position.z);
             gameObject.transform.localEulerAngles = new Vector3(0, 0, 0);
-        }
+        }*/
         if (time > 2f)
             speed -= 5;
         if (speed < 0)
@@ -50,7 +50,7 @@ public class G3PlayerController : MonoBehaviour {
 				time = 0f;
 			}
 			if (Input.GetButtonDown (transform.parent.name + " Secondary") && !hit) {
-				gameObject.GetComponent<Animation> ().Play ("Jump", PlayMode.StopAll);
+				gameObject.GetComponentInChildren<Animator> ().SetTrigger("Jump");
 				GetComponent<AudioSource> ().Play ();
 			}
 		} 
@@ -72,7 +72,6 @@ public class G3PlayerController : MonoBehaviour {
 				Camera.main.GetComponent<WinnerScript>().idWinner=id;
             transform.Find("Position Flat").gameObject.GetComponent<TextMesh>().text = racePosition.ToString() + "º";
             speed = 0f;
-            gameObject.GetComponent<Animation>().Stop();
 
 			if (racePosition == 4) 
 			{
@@ -84,7 +83,8 @@ public class G3PlayerController : MonoBehaviour {
 				GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
 			}
 
-        }
+		}
+		gameObject.GetComponentInChildren<Animator> ().SetFloat("Speed",speed/10);
 
     }
 
@@ -92,7 +92,7 @@ public class G3PlayerController : MonoBehaviour {
     {
 		if(collider.name=="Barrier(Clone)")
 		{
-	        gameObject.GetComponent<Animation>().Play("Impact", PlayMode.StopAll);
+			gameObject.GetComponentInChildren<Animator>().SetTrigger("Impact");
 	        speed = 0f;
 	        Destroy(collider.gameObject);
 	        //GameObject.Find("Plane").gameObject.transform.Translate(Vector3.back * 1.5f);
@@ -101,7 +101,7 @@ public class G3PlayerController : MonoBehaviour {
 		{
 			print (Random.Range (0, 4));
 			if (Random.Range (0, 4) != 1) {//80%
-				gameObject.GetComponent<Animation> ().Play ("Jump", PlayMode.StopAll);
+				gameObject.GetComponentInChildren<Animator> ().SetTrigger("Jump");
 				GetComponent<AudioSource> ().Play ();
 			}
 			Destroy (collider.gameObject);
