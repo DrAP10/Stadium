@@ -13,11 +13,9 @@ public class PreGameScript : MonoBehaviour {
 
 
     public float countDown = 3;
-	// Use this for initialization
-	void Start () {
-        countDown = 3;
-        countDownMenu.SetActive(true);
-        countDownMenu.GetComponent<Image>().sprite = number3;
+
+    void Awake()
+    {
         foreach (GameObject g in scriptsContainers)
         {
             MonoBehaviour[] scripts = g.GetComponentsInChildren<MonoBehaviour>();
@@ -26,6 +24,12 @@ public class PreGameScript : MonoBehaviour {
                 script.enabled = false;
             }
         }
+    }
+
+	void Start () {
+        countDown = 3;
+        countDownMenu.SetActive(true);
+        countDownMenu.GetComponent<Image>().sprite = number3;
     }
 	
 	// Update is called once per frame
