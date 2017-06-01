@@ -66,8 +66,6 @@ public class G4PlayerController : MonoBehaviour {
 					Destroy (o, 0.2f);
 					GetComponent<AudioSource> ().PlayOneShot (hypnoClip);
 				} 
-				else
-					TakeDemage ();
 			}
         }
         else
