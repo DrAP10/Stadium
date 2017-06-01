@@ -6,8 +6,9 @@ public class G5PlayerController : MonoBehaviour {
     public bool currentBlue;
     public RectTransform progressBar;
     float time = 0;
+    bool loading;
 
-	public int id;
+    public int id;
 	public bool comPlayer;
 
 	//AI
@@ -23,9 +24,10 @@ public class G5PlayerController : MonoBehaviour {
 	void Update () {
         if (Time.timeScale == 0)
             return;
-		bool loading = false;
-		if (!comPlayer) {
-			if (Input.GetButtonDown (transform.name + " Main") && currentBlue) {
+		if (!comPlayer)
+        {
+            loading = false;
+            if (Input.GetButtonDown (transform.name + " Main") && currentBlue) {
 				TakeDamage (2);
 				loading = true;
 				time = 0;
@@ -54,6 +56,7 @@ public class G5PlayerController : MonoBehaviour {
 				else 
 				{
 					TakeDamage (-2);
+                    loading = false;
 				}
 				next = Random.Range (0.1f, 0.2f);
 			}
