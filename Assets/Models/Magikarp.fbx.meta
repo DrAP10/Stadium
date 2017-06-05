@@ -201,7 +201,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Floor Impact
       takeName: Armature|ArmatureAction
-      firstFrame: 61
+      firstFrame: 76
       lastFrame: 85
       wrapMode: 0
       orientationOffsetY: 0

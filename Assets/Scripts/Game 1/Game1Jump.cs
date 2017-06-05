@@ -27,6 +27,8 @@ public class Game1Jump : MonoBehaviour {
         {
 			GetComponent<AudioSource> ().Play ();
             GetComponentInChildren<Animator>().SetTrigger("Jump");
+            GetComponentInChildren<Animator>().ResetTrigger("FloorImpact");
+            GetComponentInChildren<Animator>().ResetTrigger("CounterImpact");
             position = 0.15f;
             time = 0f;
             speed = 50f;
@@ -62,9 +64,24 @@ public class Game1Jump : MonoBehaviour {
     {
         if (collision.transform.name.Equals("Plane"))
         {
-            if(!floor)
-                GetComponentInChildren<Animator>().SetTrigger("FloorImpact");
+            //if(!floor)
+              //  GetComponentInChildren<Animator>().SetTrigger("FloorImpact");
             floor = true;
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.transform.name.Equals("Floor collision"))
+        {
+            if (!floor)
+            {
+                GetComponentInChildren<Animator>().SetTrigger("FloorImpact");
+            }
+        }
+        if (collider.transform.name.Equals("Counter collision"))
+        {
+            GetComponentInChildren<Animator>().SetTrigger("CounterImpact");
         }
     }
 
