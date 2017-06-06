@@ -3,6 +3,8 @@ using System.Collections;
 
 public class BarrierSpawn : MonoBehaviour {
     public GameObject barrier;
+    public GameObject goal;
+
 	// Use this for initialization
 	void Start () {
         float lastPosition = 0f;
@@ -22,7 +24,15 @@ public class BarrierSpawn : MonoBehaviour {
             }
             lastPosition = nextPosition;
         }
-	}
+        foreach (GameObject plane in GameObject.FindGameObjectsWithTag("Plane"))
+        {
+            GameObject goalObject = Instantiate(goal,
+                new Vector3(plane.transform.position.x, plane.transform.position.y + 0.5f, 250),
+                plane.transform.rotation) as GameObject;
+            goalObject.transform.parent = plane.transform;
+            goalObject.transform.localScale = new Vector3(10, 1, 0.02f);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update () {

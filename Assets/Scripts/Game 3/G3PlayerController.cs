@@ -64,7 +64,12 @@ public class G3PlayerController : MonoBehaviour {
 
         Transform planeTransform = GameObject.Find("Planes").transform.Find(transform.parent.name + " Plane").gameObject.transform;
         planeTransform.Translate(Vector3.back * speed * Time.deltaTime);
-        if(planeTransform.position.z < -250f)
+        GameObject planeTex = GameObject.Find("Visual").transform.Find(transform.parent.name + " Plane").gameObject;
+        Material m = planeTex.GetComponent<MeshRenderer>().material;
+        Vector2 currentOffset = m.mainTextureOffset;
+        m.mainTextureOffset = new Vector2(0, (currentOffset.y - ((speed * Time.deltaTime) / 250)) % 1);
+        //planeTransform.GetComponent<(Vector3.back * speed * Time.deltaTime);
+        if (planeTransform.position.z < -250f)
         {
             gameOver = true;
             int racePosition = Camera.main.GetComponent<WinnerScript>().position++;
@@ -84,7 +89,7 @@ public class G3PlayerController : MonoBehaviour {
 			}
 
 		}
-		gameObject.GetComponentInChildren<Animator> ().SetFloat("Speed",speed/10);
+		gameObject.GetComponentInChildren<Animator> ().SetFloat("Speed",speed/5);
 
     }
 
