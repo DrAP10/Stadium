@@ -16,7 +16,7 @@ public class BarrierVisibility : MonoBehaviour {
 
 	void OnTriggerEnter(Collider collider)
 	{
-		if(collider.name=="Barrier(Clone)")
+		if(collider.name=="Barrier(Clone)" || collider.name == "Goal(Clone)")
 			collider.gameObject.GetComponent<MeshRenderer>().enabled = true;
 	}
 

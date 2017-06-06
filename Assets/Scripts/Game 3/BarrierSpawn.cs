@@ -27,10 +27,10 @@ public class BarrierSpawn : MonoBehaviour {
         foreach (GameObject plane in GameObject.FindGameObjectsWithTag("Plane"))
         {
             GameObject goalObject = Instantiate(goal,
-                new Vector3(plane.transform.position.x, plane.transform.position.y + 0.5f, 250),
+                new Vector3(plane.transform.position.x, plane.transform.position.y, 250),
                 plane.transform.rotation) as GameObject;
             goalObject.transform.parent = plane.transform;
-            goalObject.transform.localScale = new Vector3(10, 1, 0.02f);
+            goalObject.transform.localScale = new Vector3(1.1f, 0.65f, 0.02f);
         }
     }
 	
