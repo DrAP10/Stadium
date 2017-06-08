@@ -62,32 +62,40 @@ public class G8PlayerController : MonoBehaviour {
     void Start () {
         harden = false;
 		dead = false;
-		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
 	}
+
+    void Awake()
+    {
+        comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+    }
 	
 	// Update is called once per frame
 	void Update ()
 	{
 		if (dead || Time.timeScale == 0)
 			return;
-		if (!comPlayer) {
-			if (Input.GetButton (transform.parent.name + " Main")) {
-				if (!harden && !gameObject.GetComponent<Animation> ().IsPlaying ("Impact")) {
-					Material[] mats = new Material[]{goldBody, goldEye};
-					kakuna.GetComponent<SkinnedMeshRenderer>().materials = mats;
-					harden = true;
-				}
-				TakeDamage (Time.deltaTime * 10);
-			}
-			if (Input.GetButtonUp (transform.parent.name + " Main") && harden) {
-				Material[] mats = new Material[]{originalBody, originalEye};
-				kakuna.GetComponent<SkinnedMeshRenderer>().materials = mats;
-				harden = false;
-			}
-		} else 
-		{
-			//IA
-		}
+        if (!comPlayer)
+        {
+            if (Input.GetButton(transform.parent.name + " Main"))
+                Harden(true);
+            if (Input.GetButtonUp(transform.parent.name + " Main"))
+                Harden(false);
+        }
 		GetComponentInChildren<Animator> ().SetBool ("Harden", harden);
+        if (harden)
+            TakeDamage(Time.deltaTime * 10);
 	}
+
+    public void Harden(bool harden)
+    {
+        if (gameObject.GetComponent<Animation>().IsPlaying("Impact"))
+            return;
+        this.harden = harden;
+        Material[] mats;
+        if(harden)
+            mats = new Material[] { goldBody, goldEye };
+        else
+            mats = new Material[] { originalBody, originalEye };
+        kakuna.GetComponent<SkinnedMeshRenderer>().materials = mats;
+    }
 }
