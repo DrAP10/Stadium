@@ -13,6 +13,7 @@ public class PreGameScript : MonoBehaviour {
 
 
     public float countDown = 3;
+	bool started;
 
     void Awake()
     {
@@ -28,16 +29,20 @@ public class PreGameScript : MonoBehaviour {
 
 	void Start () {
         countDown = 3;
+		started = false;
         countDownMenu.SetActive(true);
         countDownMenu.GetComponent<Image>().sprite = number3;
     }
 	
 	// Update is called once per frame
 	void Update () {
+		if (started)
+			return;
         float old = countDown;
         countDown -= Time.deltaTime;
         if(countDown<=0)
         {
+			started = true;
             countDownMenu.SetActive(false);
             foreach (GameObject g in scriptsContainers)
             {
@@ -47,6 +52,7 @@ public class PreGameScript : MonoBehaviour {
                     script.enabled = true;
                 }
             }
+			GameObject.FindGameObjectWithTag ("GameState").GetComponent<SoundTrackScript> ().Play ();
 			//GameObject.FindGameObjectWithTag("InGameMenu").gameObject.GetComponent<AudioSource> ().Play ();
         }
         else if(old > 2 && countDown <= 2)

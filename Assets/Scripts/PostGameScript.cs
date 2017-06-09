@@ -24,9 +24,12 @@ public class PostGameScript : MonoBehaviour {
 
 	bool waitingToExit;
 
+	SoundTrackScript soundTrackScript;
+
 	// Use this for initialization
 	void Start () {
 		waitingToExit = false;
+		soundTrackScript = GameObject.FindGameObjectWithTag ("GameState").GetComponent<SoundTrackScript> ();
 	}
 	
 	// Update is called once per frame
@@ -52,6 +55,9 @@ public class PostGameScript : MonoBehaviour {
 		postGamePanel.SetActive(true);
 		Time.timeScale = 0;
 		waitingToExit = true;
+
+		soundTrackScript.SetClip (7);
+		soundTrackScript.Play ();
 	}
 
 	public void GoToLoadScene()
@@ -61,5 +67,7 @@ public class PostGameScript : MonoBehaviour {
 		postGamePanel.SetActive(false);
 		GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ().currentMenu = 2;
 		SceneManager.LoadScene(1);
+		soundTrackScript.SetClip (0);
+		soundTrackScript.Play ();
 	}
 }

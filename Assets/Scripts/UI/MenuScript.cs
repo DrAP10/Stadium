@@ -41,6 +41,7 @@ public class MenuScript : MonoBehaviour {
 	public void GameSelected(int id)
 	{
 		SceneManager.LoadScene (id);
+		GameObject.FindGameObjectWithTag ("GameState").GetComponent<SoundTrackScript> ().SetClip (id-1);
 	}
 
 	public void GoToPlayerSelection()
