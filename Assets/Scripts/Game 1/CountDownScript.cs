@@ -38,7 +38,7 @@ public class CountDownScript : MonoBehaviour {
 				if (g.GetComponentInChildren<Game1Impact> ().points == maxPoints)
 					winners[g.GetComponentInChildren<Game1Jump> ().id] = true;
 			}
-			GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
+            GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript>().Winner(winners, 0, true, 0, maxPoints, 1);
             isEnd = true;
             return;
 		}

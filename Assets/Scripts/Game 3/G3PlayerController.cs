@@ -9,12 +9,15 @@ public class G3PlayerController : MonoBehaviour {
 	public int id;
 	public bool comPlayer;
 
+    float totalTime;
+
 	// Use this for initialization
 	void Start () {
         time = 1;
         speed = 0;
 		gameOver = false;
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+        totalTime = 0;
     }
 	
 	// Update is called once per frame
@@ -22,6 +25,7 @@ public class G3PlayerController : MonoBehaviour {
     {
         if (gameOver || Time.timeScale == 0)
             return;
+        totalTime += Time.deltaTime;
 		time += Time.deltaTime;
 		bool hit = gameObject.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Impact");
 		bool jump = gameObject.GetComponentInChildren<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Jump");
@@ -73,8 +77,11 @@ public class G3PlayerController : MonoBehaviour {
         {
             gameOver = true;
             int racePosition = Camera.main.GetComponent<WinnerScript>().position++;
-			if(racePosition==1)
-				Camera.main.GetComponent<WinnerScript>().idWinner=id;
+            if (racePosition == 1)
+            {
+                Camera.main.GetComponent<WinnerScript>().idWinner = id;
+                Camera.main.GetComponent<WinnerScript>().winnerTime = totalTime;
+            }
             transform.Find("Position Flat").gameObject.GetComponent<TextMesh>().text = racePosition.ToString() + "º";
             speed = 0f;
 
@@ -85,7 +92,8 @@ public class G3PlayerController : MonoBehaviour {
 				{
 					winners [i] = i == Camera.main.GetComponent<WinnerScript>().idWinner;
 				}
-				GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
+                float winnerTime = Camera.main.GetComponent<WinnerScript>().winnerTime;
+                GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript>().Winner(winners, 1, false, winnerTime, 0, 3);
 			}
 
 		}

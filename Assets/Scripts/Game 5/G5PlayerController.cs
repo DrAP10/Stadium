@@ -11,6 +11,8 @@ public class G5PlayerController : MonoBehaviour {
     public int id;
 	public bool comPlayer;
 
+    float totalTime;
+
 	//AI
 	float next=0;
 
@@ -18,12 +20,14 @@ public class G5PlayerController : MonoBehaviour {
     void Start () {
 		progressBar.sizeDelta = new Vector2(progress, progressBar.sizeDelta.y);
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+        totalTime = 0;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (Time.timeScale == 0)
             return;
+        totalTime += Time.deltaTime;
 		if (!comPlayer)
         {
             loading = false;
@@ -79,7 +83,7 @@ public class G5PlayerController : MonoBehaviour {
 			{
 				winners [i] = i == id;
 			}
-			GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
+			GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners, 1, false, totalTime, 0, 5);
             //GameObject.Find("ColorBall").SetActive(false);
             //gameObject.GetComponent<Animation>().Play("Dead", PlayMode.StopAll);
         }

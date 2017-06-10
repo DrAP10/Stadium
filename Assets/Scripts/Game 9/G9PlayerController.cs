@@ -13,6 +13,8 @@ public class G9PlayerController : MonoBehaviour {
 
 	float winAnimationTime;
 
+    float totalTime;
+
 	// Use this for initialization
 	void Start () {
         gameOver = false;
@@ -20,6 +22,8 @@ public class G9PlayerController : MonoBehaviour {
         comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
 
         GetComponentInChildren<Animator>().SetTrigger("Start");
+
+        totalTime = 0;
     }
 	
 	// Update is called once per frame
@@ -43,11 +47,12 @@ public class G9PlayerController : MonoBehaviour {
 				{
 					winners [i] = i == id;
 				}
-				GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
+                GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript>().Winner(winners, 1, false, totalTime, 0, 9);
 			}
 		}
 		if (gameOver)
 			return;
+        totalTime += Time.deltaTime;
         if (!comPlayer)
         {
             if ((Input.GetButtonDown(transform.parent.name + " Main") && right)
