@@ -10,7 +10,7 @@ public class CountDownScript : MonoBehaviour {
 	GUIStyle style;
 	// Use this for initialization
 	void Start () {
-		time = 30;
+		time = 20;
 		labelTime = 30;
 		isEnd = false;
 		style = new GUIStyle ();
@@ -39,9 +39,11 @@ public class CountDownScript : MonoBehaviour {
 					winners[g.GetComponentInChildren<Game1Jump> ().id] = true;
 			}
 			GameObject.FindGameObjectWithTag("InGameMenu").GetComponent<PostGameScript> ().Winner (winners);
+            isEnd = true;
+            return;
 		}
 		time -= Time.deltaTime;
-		if (labelTime > time)
+		if (labelTime > time+1 && labelTime !=0)
 			labelTime--;
 	}
 
