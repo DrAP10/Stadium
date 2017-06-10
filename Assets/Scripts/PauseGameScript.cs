@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseGameScript : MonoBehaviour {
 
     public GameObject exitMenu;
-    public bool isPause = false;
+    public bool isPause;
 	SoundTrackScript soundTrackScript;
 
     // Use this for initialization
     void Start () {
 		soundTrackScript = GameObject.FindGameObjectWithTag ("GameState").GetComponent<SoundTrackScript> ();
+        isPause = false;
 	}
 	
 	// Update is called once per frame
