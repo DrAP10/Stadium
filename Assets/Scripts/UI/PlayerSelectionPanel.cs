@@ -124,15 +124,20 @@ public class PlayerSelectionPanel : MonoBehaviour {
         
         if (Input.GetButtonDown("Continue"))
         {
-            PlayerPrefs.SetString("Player1", p1Nombre.GetComponent<InputField>().text);
-            PlayerPrefs.SetString("Player2", p2Nombre.GetComponent<InputField>().text);
-            PlayerPrefs.SetString("Player3", p3Nombre.GetComponent<InputField>().text);
-            PlayerPrefs.SetString("Player4", p4Nombre.GetComponent<InputField>().text);
-            Camera.main.GetComponent<MenuScript>().GoToGameSelection();
+            Continue();
         }
 		if (Input.GetButtonDown ("Cancel"))
 			Camera.main.GetComponent<MenuScript> ().GoToModeSelection ();
 	}
+
+    public void Continue()
+    {
+        PlayerPrefs.SetString("Player1", p1Nombre.GetComponent<InputField>().text);
+        PlayerPrefs.SetString("Player2", p2Nombre.GetComponent<InputField>().text);
+        PlayerPrefs.SetString("Player3", p3Nombre.GetComponent<InputField>().text);
+        PlayerPrefs.SetString("Player4", p4Nombre.GetComponent<InputField>().text);
+        Camera.main.GetComponent<MenuScript>().GoToGameSelection();
+    }
 
     public void StartEdit()
     {

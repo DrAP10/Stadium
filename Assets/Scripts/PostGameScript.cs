@@ -39,11 +39,17 @@ public class PostGameScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Continue") && waitingToExit)
+		if (Input.GetButtonDown ("Continue"))
 		{
-			GoToLoadScene ();
+            Continue();
 		}
 	}
+
+    public void Continue()
+    {
+        if(waitingToExit)
+            GoToLoadScene();
+    }
 
 	public void Winner(bool[] winners)
 	{
