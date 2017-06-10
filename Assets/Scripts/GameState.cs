@@ -11,6 +11,8 @@ public class GameState : MonoBehaviour {
 	public int[] points;
 	public int pointsToWin;
 	public int currentMenu;//0=ModeSelection, 1=PlayerSelection, 2=GameSelection
+    public float masterVolume;
+    public int AIDifficulty;//0=easy, 1=medium, 2=hard
 
 	void Awake() 
 	{
@@ -25,6 +27,9 @@ public class GameState : MonoBehaviour {
         }
         pointsToWin = 0;
 		currentMenu = 0;//ModeSelection
+        masterVolume = PlayerPrefs.GetFloat("MasterVolume", 1);
+        AudioListener.volume = masterVolume;
+        AIDifficulty = PlayerPrefs.GetInt("AIDifficulty", 0);
     }
 
 	// Use this for initialization

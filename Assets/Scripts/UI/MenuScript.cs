@@ -2,17 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour {
 	
 	public GameObject modeSelection;
 	public GameObject gameSelection;
 	public GameObject playerSelection;
-	public GameObject championshipConfiguration;
+    public GameObject championshipConfiguration;
+    public GameObject gameConfiguration;
 
-	// Use this for initialization
-	void Start () {
-		int currentMenu = GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ().currentMenu;
+    public Slider masterVolume;
+    public Slider AIDifficulty;
+    GameState gameState;
+
+    // Use this for initialization
+    void Start () {
+        gameState = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
+        int currentMenu = gameState.currentMenu;
+        masterVolume.value = gameState.masterVolume;
+        AIDifficulty.value = gameState.AIDifficulty;
 		switch (currentMenu)
 		{
 		case 0:
@@ -51,7 +60,8 @@ public class MenuScript : MonoBehaviour {
 		gameSelection.SetActive (false);
 		playerSelection.SetActive (true);
 		championshipConfiguration.SetActive (false);
-	}
+        gameConfiguration.SetActive(false);
+    }
 
 	public void GoToModeSelection()
 	{
@@ -60,7 +70,8 @@ public class MenuScript : MonoBehaviour {
 		gameSelection.SetActive (false);
 		playerSelection.SetActive (false);
 		championshipConfiguration.SetActive (false);
-	}
+        gameConfiguration.SetActive(false);
+    }
 
 	public void GoToGameSelection()
 	{
@@ -69,7 +80,8 @@ public class MenuScript : MonoBehaviour {
 		gameSelection.SetActive (true);
 		playerSelection.SetActive (false);
 		championshipConfiguration.SetActive (false);
-	}
+        gameConfiguration.SetActive(false);
+    }
 
 	public void GoToChampionshipConfiguration()
 	{
@@ -77,6 +89,27 @@ public class MenuScript : MonoBehaviour {
 		gameSelection.SetActive (false);
 		playerSelection.SetActive (false);
 		championshipConfiguration.SetActive (true);
-	}
+        gameConfiguration.SetActive(false);
+    }
+
+    public void GoToGameConfiguration()
+    {
+        modeSelection.SetActive(false);
+        gameSelection.SetActive(false);
+        playerSelection.SetActive(false);
+        championshipConfiguration.SetActive(false);
+        gameConfiguration.SetActive(true);
+    }
+
+    public void SetMasterVolume()
+    {
+        AudioListener.volume = masterVolume.value;
+        PlayerPrefs.SetFloat("MasterVolume", masterVolume.value);
+    }
+
+    public void SetAIDifficulty()
+    {
+        PlayerPrefs.SetInt("AIDifficulty", (int)AIDifficulty.value);
+    }
     
 }
