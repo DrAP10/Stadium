@@ -30,7 +30,6 @@ public class G5PlayerController : MonoBehaviour {
         totalTime += Time.deltaTime;
 		if (!comPlayer)
         {
-            loading = false;
             if (Input.GetButtonDown (transform.name + " Main") && currentBlue) {
 				TakeDamage (2);
 				loading = true;
@@ -45,6 +44,7 @@ public class G5PlayerController : MonoBehaviour {
 			if (time > 0.5f) {
 				TakeDamage (-2);
 				time = 0;
+                loading = false;
 			}
 		} 
 		else //AI
