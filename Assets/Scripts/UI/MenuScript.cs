@@ -45,7 +45,10 @@ public class MenuScript : MonoBehaviour {
         if (Input.GetButtonDown("Cancel") &&
             GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu == 2)
             GoToPlayerSelection();	
-	}
+        else if (Input.GetButtonDown("Cancel") &&
+            GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu == 3)
+            GoToModeSelection();
+    }
 
 	public void GameSelected(int id)
 	{
@@ -94,6 +97,7 @@ public class MenuScript : MonoBehaviour {
 
     public void GoToGameConfiguration()
     {
+        GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().currentMenu = 3;
         modeSelection.SetActive(false);
         gameSelection.SetActive(false);
         playerSelection.SetActive(false);

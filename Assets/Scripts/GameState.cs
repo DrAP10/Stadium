@@ -10,7 +10,7 @@ public class GameState : MonoBehaviour {
 	public int currentGame;
 	public int[] points;
 	public int pointsToWin;
-	public int currentMenu;//0=ModeSelection, 1=PlayerSelection, 2=GameSelection
+	public int currentMenu;//0=ModeSelection, 1=PlayerSelection, 2=GameSelection, 3=Configuration
     public float masterVolume;
     public int AIDifficulty;//0=easy, 1=medium, 2=hard
 
