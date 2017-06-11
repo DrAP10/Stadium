@@ -113,6 +113,7 @@ public class MenuScript : MonoBehaviour {
 
     public void SetAIDifficulty()
     {
+        GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().AIDifficulty = (int)AIDifficulty.value;
         PlayerPrefs.SetInt("AIDifficulty", (int)AIDifficulty.value);
     }
     

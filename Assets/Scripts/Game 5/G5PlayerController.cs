@@ -11,6 +11,11 @@ public class G5PlayerController : MonoBehaviour {
     public int id;
 	public bool comPlayer;
 
+    int difficulty;
+    float[] minRange = { 0.2f, 0.15f, 0.1f };
+    float[] maxRange = { 0.4f, 0.3f, 0.2f };
+    int[] loadPossibility = { 80, 85, 90 };
+
     float totalTime;
 
 	//AI
@@ -20,6 +25,7 @@ public class G5PlayerController : MonoBehaviour {
     void Start () {
 		progressBar.sizeDelta = new Vector2(progress, progressBar.sizeDelta.y);
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+        difficulty = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().AIDifficulty;
         totalTime = 0;
     }
 	
@@ -52,7 +58,7 @@ public class G5PlayerController : MonoBehaviour {
 			next-=Time.deltaTime;
 			if(next<=0)
 			{
-				if (Random.Range (0, 10) != 1)//90%
+				if (Random.Range (0, 100) < loadPossibility[difficulty] )
 				{
 					TakeDamage (2);
 					loading = true;
@@ -62,7 +68,7 @@ public class G5PlayerController : MonoBehaviour {
 					TakeDamage (-2);
                     loading = false;
 				}
-				next = Random.Range (0.1f, 0.2f);
+				next = Random.Range (minRange[difficulty], maxRange[difficulty]);
 			}
 		}
 		GetComponentInChildren<Animator> ().SetBool ("Loading", loading);

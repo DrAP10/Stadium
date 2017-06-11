@@ -12,18 +12,25 @@ public class Game1Jump : MonoBehaviour {
 	public int id;
 	public bool comPlayer;
 
-	// Use this for initialization
-	void Start () {
+    int difficulty;
+    float[] minRange = { 0.25f, 0.1f, 0 };
+    float[] maxRange = { 0.5f, 0.25f, 0.1f };
+    float nextJump;
+
+    // Use this for initialization
+    void Start () {
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
-	}
+        difficulty = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().AIDifficulty;
+    }
 
 	// Update is called once per frame
 	void Update ()
     {
         if (Time.deltaTime == 0)
             return;
+        nextJump -= Time.deltaTime;
 		if ((!comPlayer && Input.GetButtonDown(transform.parent.name+" Main")&&floor)
-			||(comPlayer && Random.Range(0,2)==1 && floor))
+			||(comPlayer && nextJump<=0 && floor))
         {
 			GetComponent<AudioSource> ().Play ();
             GetComponentInChildren<Animator>().SetTrigger("Jump");
@@ -67,6 +74,7 @@ public class Game1Jump : MonoBehaviour {
             //if(!floor)
               //  GetComponentInChildren<Animator>().SetTrigger("FloorImpact");
             floor = true;
+            nextJump = Random.Range(minRange[difficulty], maxRange[difficulty]);
         }
     }
 

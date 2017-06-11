@@ -15,15 +15,19 @@ public class G4PlayerController : MonoBehaviour {
 	public int id;
 	public bool comPlayer;
 
-	//AI
-	bool lastOnSide;//true if onSide true last frame
+    int difficulty;
+    int[] loadPossibility = { 60, 75, 90 };
+
+    //AI
+    bool lastOnSide;//true if onSide true last frame
 
 	// Use this for initialization
 	void Start () 
 	{
 		dead = false;
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
-		GetComponentInChildren<Animator> ().SetTrigger ("Hypno");
+        difficulty = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().AIDifficulty;
+        GetComponentInChildren<Animator> ().SetTrigger ("Hypno");
 	}
 	
 	// Update is called once per frame
@@ -60,7 +64,7 @@ public class G4PlayerController : MonoBehaviour {
             onSide = true;
 			if (comPlayer) 
 			{
-				if (Random.Range (0, 4) != 1) {//80% 
+				if (Random.Range(0, 100) < loadPossibility[difficulty]) {
 					hypno = true;
 					GameObject o = Instantiate (hypnoObject, transform.Find ("Hypno Spawn").position, transform.Find ("Hypno Spawn").rotation) as GameObject;
 					Destroy (o, 0.2f);

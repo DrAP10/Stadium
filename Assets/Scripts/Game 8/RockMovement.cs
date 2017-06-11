@@ -11,6 +11,10 @@ public class RockMovement : MonoBehaviour {
     float timeAfterHit;
     bool comPlayer;
 
+    int difficulty;
+    float[] minRange = { 0.0f, 0.05f, 0.1f };
+    float[] maxRange = { 0.45f, 0.35f, 0.25f };
+
     /*float angle, speed, radius;
     Vector3 origen;*/
 
@@ -25,6 +29,7 @@ public class RockMovement : MonoBehaviour {
         triggerTime = 20;
         timeAfterHit = 20;
         comPlayer = transform.parent.GetComponentInChildren<G8PlayerController>().comPlayer;
+        difficulty = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().AIDifficulty;
 
         /*origen = new Vector3(0f, 2f, 16f);
         angle = Mathf.PI/2;
@@ -98,6 +103,6 @@ public class RockMovement : MonoBehaviour {
     void OnTriggerEnter(Collider collider)
     {
         if (comPlayer)
-            triggerTime = Random.Range(0.0f, 0.35f);
+            triggerTime = Random.Range(minRange[difficulty], maxRange[difficulty]);
     }
 }

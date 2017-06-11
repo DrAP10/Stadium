@@ -9,6 +9,11 @@ public class G3PlayerController : MonoBehaviour {
 	public int id;
 	public bool comPlayer;
 
+    int difficulty;
+    float[] minSpeed = { 5, 7, 9 };
+    float[] maxSpeed = { 8, 8.5f, 10 };
+    int[] jumpPossibility = { 60, 80, 95 };
+
     float totalTime;
 
 	// Use this for initialization
@@ -17,6 +22,7 @@ public class G3PlayerController : MonoBehaviour {
         speed = 0;
 		gameOver = false;
 		comPlayer = !GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().players[id];
+        difficulty = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>().AIDifficulty;
         totalTime = 0;
     }
 	
@@ -61,8 +67,8 @@ public class G3PlayerController : MonoBehaviour {
 		else 
 		{
 			if (!hit) {
-				speed = Random.Range(9,10);
-				time = 0;
+				speed = Random.Range(minSpeed[difficulty], maxSpeed[difficulty]);
+                time = 0;
 			}
 		}
 
@@ -112,8 +118,7 @@ public class G3PlayerController : MonoBehaviour {
 		}
 		if(collider.name=="JumpRange" && comPlayer)
 		{
-			print (Random.Range (0, 4));
-			if (Random.Range (0, 4) != 1) {//80%
+			if (Random.Range (0, 100) < jumpPossibility[difficulty] ) {
 				gameObject.GetComponentInChildren<Animator> ().SetTrigger("Jump");
 				GetComponent<AudioSource> ().Play ();
 			}
